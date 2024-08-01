@@ -31,6 +31,10 @@ function newMove(e){
     e.target.removeEventListener("click", newMove);
     selected[index] = player;
     console.log (selected);
+
+    setTimeout(() => {
+        check();
+    }, [100]);
     /*intercala os jogadores entre X e O */
     player = player === "X" ? "O" : "X";
     currentPlayer.innerHTML = `JOGADOR DA VEZ: ${player}`;
@@ -43,6 +47,7 @@ function check(){
         .map((item, i) => [item, i])
         .filter((item) => item[0] === playerLastMove)
         .map((item) => item[1]);
+        console.log ("teste");
 
     for (pos of positions){
         if (pos.every((item) => items.includes(item))){
